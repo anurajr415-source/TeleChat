@@ -3,45 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeleChat</title>
+    <title>TeleChat - Anuraj Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .wa-green { background-color: #075E54; }
-        .wa-light-green { background-color: #25D366; }
-        .chat-bg { background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); }
+        .wa-dark { background-color: #0b141a; color: white; }
+        .wa-card { background-color: #111b21; border-bottom: 1px solid #222d34; }
+        .active-tab { color: #00a884; }
+        body { background-color: #0b141a; color: #e9edef; font-family: sans-serif; }
     </style>
 </head>
-<body class="flex flex-col h-screen bg-gray-100">
-    <div class="wa-green text-white p-4 flex justify-between items-center shadow-lg">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-green-800 font-bold">TC</div>
-            <h1 class="text-xl font-bold">TeleChat</h1>
-        </div>
-        <div class="flex gap-4 text-xl">
-            <span>📷</span><span>🔍</span><span>⋮</span>
+<body class="flex flex-col h-screen overflow-hidden">
+
+    <div class="p-4 flex justify-between items-center bg-[#111b21] shadow-md">
+        <h1 class="text-2xl font-semibold">TeleChat</h1>
+        <div class="flex gap-5 text-xl">
+            <i class="fas fa-qrcode"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-ellipsis-v"></i>
         </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto p-4 chat-bg space-y-4">
-        <div class="bg-white p-2 rounded-lg max-w-[80%] shadow-sm self-start">
-            Hello! Welcome to TeleChat. 🚀
-            <div class="text-[10px] text-gray-400 text-right">18:30</div>
-        </div>
-        <div class="bg-green-100 p-2 rounded-lg max-w-[80%] shadow-sm self-end ml-auto">
-            Bhai, ye toh bilkul WhatsApp lag raha hai!
-            <div class="text-[10px] text-gray-400 text-right">18:31</div>
+    <div id="main-content" class="flex-1 overflow-y-auto">
+        <div class="p-1">
+            <div class="wa-card p-4 flex items-center gap-4">
+                <div class="w-12 h-12 bg-gray-600 rounded-full overflow-hidden">
+                    <img src="https://via.placeholder.com/150" alt="profile">
+                </div>
+                <div class="flex-1">
+                    <div class="flex justify-between">
+                        <h2 class="font-bold text-lg">Anuraj Raja</h2>
+                        <span class="text-xs text-[#8696a0]">19:10</span>
+                    </div>
+                    <p class="text-[#8696a0] text-sm truncate">Working on new features...</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="p-3 bg-gray-200 flex items-center gap-2">
-        <div class="flex-1 bg-white rounded-full px-4 py-2 flex items-center shadow-sm">
-            <span class="mr-2">😊</span>
-            <input type="text" placeholder="Message" class="flex-1 outline-none">
-            <span class="ml-2 text-gray-400">📎</span>
+    <div class="bg-[#111b21] border-t border-[#222d34] flex justify-around p-3 text-center">
+        <div class="active-tab flex flex-col items-center">
+            <i class="fas fa-comment-dots text-xl"></i>
+            <span class="text-xs mt-1 font-medium">Chats</span>
         </div>
-        <div class="wa-light-green w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
-            🎤
+        <div class="text-[#8696a0] flex flex-col items-center">
+            <i class="fas fa-circle-notch text-xl"></i>
+            <span class="text-xs mt-1">Updates</span>
+        </div>
+        <div class="text-[#8696a0] flex flex-col items-center">
+            <i class="fas fa-users text-xl"></i>
+            <span class="text-xs mt-1">Communities</span>
+        </div>
+        <div class="text-[#8696a0] flex flex-col items-center">
+            <i class="fas fa-phone-alt text-xl"></i>
+            <span class="text-xs mt-1">Calls</span>
+        </div>
+        <div class="text-[#8696a0] flex flex-col items-center">
+            <div class="w-6 h-6 rounded-full bg-gray-500 overflow-hidden border border-gray-400">
+                <img src="https://via.placeholder.com/50" alt="you">
+            </div>
+            <span class="text-xs mt-1">You</span>
         </div>
     </div>
+
 </body>
 </html>
