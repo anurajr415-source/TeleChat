@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeleChat - Anuraj Raja</title>
+    <title>TeleChat - Final</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
@@ -12,66 +12,38 @@
         body { background-color: #0b141a; color: #e9edef; font-family: sans-serif; }
         .wa-green { background-color: #00a884; }
         .hidden { display: none; }
-        input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
     </style>
 </head>
 <body>
 
     <div id="login-section" class="flex flex-col items-center justify-center h-screen p-6">
-        <div class="text-[#00a884] text-6xl mb-10"><i class="fas fa-comment-dots"></i></div>
-        <h1 class="text-2xl font-bold mb-4 text-white">Enter your phone number</h1>
-        <p class="text-gray-400 mb-8 text-center text-sm px-4">TeleChat by Anuraj will send an SMS to verify your number.</p>
-        
+        <h1 class="text-2xl font-bold mb-6 text-white text-center">Verify your phone number</h1>
         <div class="flex gap-2 w-full max-w-sm mb-4 border-b border-[#00a884] p-2">
-            <span class="text-white font-bold">+91</span>
-            <input id="phone-number" type="tel" placeholder="Phone number" class="bg-transparent flex-1 outline-none text-white text-lg">
+            <span class="text-white">+91</span>
+            <input id="phone-number" type="tel" placeholder="Phone number" class="bg-transparent flex-1 outline-none text-white">
         </div>
-
-        <div id="recaptcha-container"></div> 
-
-        <button onclick="sendOTP()" class="wa-green text-[#0b141a] font-bold px-12 py-3 rounded-full mt-12 shadow-lg hover:scale-105 transition">NEXT</button>
+        <div id="recaptcha-container"></div>
+        <button onclick="sendOTP()" class="wa-green text-[#0b141a] font-bold px-10 py-3 rounded-full mt-10 shadow-lg">NEXT</button>
     </div>
 
     <div id="otp-section" class="flex flex-col items-center justify-center h-screen p-6 hidden">
-        <h1 class="text-xl font-bold mb-4 text-white">Verifying your number</h1>
-        <p class="text-sm text-gray-400 mb-10">Enter the 6-digit code sent to your phone.</p>
-        <input id="otp-input" type="number" placeholder="------" class="bg-transparent border-b-2 border-[#00a884] text-4xl tracking-[15px] text-center w-64 outline-none mb-10 text-white">
-        <button onclick="verifyOTP()" class="wa-green text-[#0b141a] font-bold px-12 py-3 rounded-full shadow-lg hover:scale-105 transition">VERIFY</button>
+        <h1 class="text-xl font-bold mb-4">Enter 6-digit code</h1>
+        <input id="otp-input" type="number" class="bg-transparent border-b border-[#00a884] text-3xl tracking-widest text-center w-48 outline-none mb-10">
+        <button onclick="verifyOTP()" class="wa-green text-[#0b141a] font-bold px-10 py-3 rounded-full shadow-lg">VERIFY</button>
     </div>
 
     <div id="main-app" class="flex flex-col h-screen hidden">
-        <div class="bg-[#111b21] p-4 flex justify-between items-center shadow-md">
-            <h1 class="text-2xl font-semibold text-[#8696a0]">TeleChat</h1>
-            <div class="flex gap-6 text-xl text-[#8696a0]">
-                <i class="fas fa-camera"></i>
-                <i class="fas fa-search"></i>
-                <i class="fas fa-ellipsis-v"></i>
-            </div>
+        <div class="bg-[#111b21] p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold">TeleChat</h1>
+            <div class="flex gap-5 text-xl"><i class="fas fa-search"></i><i class="fas fa-ellipsis-v"></i></div>
         </div>
-
-        <div class="flex-1 overflow-y-auto">
-            <div class="p-4 flex items-center gap-4 hover:bg-[#202c33] cursor-pointer border-b border-[#222d34]">
-                <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">A</div>
-                <div class="flex-1">
-                    <div class="flex justify-between">
-                        <h2 class="font-bold text-lg">Anuraj Raja (Owner)</h2>
-                        <span class="text-xs text-[#00a884]">Online</span>
-                    </div>
-                    <p class="text-gray-400 text-sm">System is live! OTP Working. ✅</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-[#111b21] flex justify-around p-3 border-t border-[#222d34] pb-6">
-            <div class="text-[#00a884] flex flex-col items-center"><i class="fas fa-comment text-xl"></i><span class="text-[10px] mt-1">Chats</span></div>
-            <div class="text-[#8696a0] flex flex-col items-center"><i class="fas fa-circle-notch text-xl"></i><span class="text-[10px] mt-1">Updates</span></div>
-            <div class="text-[#8696a0] flex flex-col items-center"><i class="fas fa-users text-xl"></i><span class="text-[10px] mt-1">Communities</span></div>
-            <div class="text-[#8696a0] flex flex-col items-center"><i class="fas fa-phone text-xl"></i><span class="text-[10px] mt-1">Calls</span></div>
+        <div class="flex-1 p-4">
+            <h2 class="font-bold text-lg">Anuraj Raja</h2>
+            <p class="text-gray-400">System is live! OTP working. ✅</p>
         </div>
     </div>
 
     <script>
-        // --- REAL FIREBASE CONFIG (YOUR DATA) ---
         const firebaseConfig = {
             apiKey: "AIzaSyA0Aqj789tKX9uSR8TC-uC3S00_908f72", 
             authDomain: "telechatanuraj-32aa3.firebaseapp.com",
@@ -83,34 +55,24 @@
         
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
-
-        // CAPTCHA Setup
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-            'size': 'invisible'
-        });
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { 'size': 'invisible' });
 
         function sendOTP() {
             const phoneNumber = "+91" + document.getElementById('phone-number').value;
-            const appVerifier = window.recaptchaVerifier;
-
-            auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+            auth.signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
                 .then((confirmationResult) => {
                     window.confirmationResult = confirmationResult;
                     document.getElementById('login-section').classList.add('hidden');
                     document.getElementById('otp-section').classList.remove('hidden');
-                }).catch((error) => {
-                    alert("Error: " + error.message);
-                });
+                }).catch((error) => alert(error.message));
         }
 
         function verifyOTP() {
             const code = document.getElementById('otp-input').value;
-            confirmationResult.confirm(code).then((result) => {
+            confirmationResult.confirm(code).then(() => {
                 document.getElementById('otp-section').classList.add('hidden');
                 document.getElementById('main-app').classList.remove('hidden');
-            }).catch((error) => {
-                alert("Incorrect OTP! Try again.");
-            });
+            }).catch(() => alert("Invalid OTP!"));
         }
     </script>
 </body>
