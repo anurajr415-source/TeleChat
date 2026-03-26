@@ -7,15 +7,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .wa-dark { background-color: #0b141a; color: white; }
-        .wa-card { background-color: #111b21; border-bottom: 1px solid #222d34; }
-        .active-tab { color: #00a884; }
         body { background-color: #0b141a; color: #e9edef; font-family: sans-serif; }
+        .wa-dark { background-color: #111b21; }
+        .active-tab { color: #00a884; }
+        .text-gray { color: #8696a0; }
+        .profile-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
     </style>
 </head>
 <body class="flex flex-col h-screen overflow-hidden">
 
-    <div class="p-4 flex justify-between items-center bg-[#111b21] shadow-md">
+    <div class="wa-dark p-4 flex justify-between items-center shadow-md">
         <h1 class="text-2xl font-semibold">TeleChat</h1>
         <div class="flex gap-5 text-xl">
             <i class="fas fa-qrcode"></i>
@@ -24,45 +25,49 @@
         </div>
     </div>
 
-    <div id="main-content" class="flex-1 overflow-y-auto">
-        <div class="p-1">
-            <div class="wa-card p-4 flex items-center gap-4">
-                <div class="w-12 h-12 bg-gray-600 rounded-full overflow-hidden">
-                    <img src="https://via.placeholder.com/150" alt="profile">
+    <div class="flex-1 overflow-y-auto">
+        <div class="p-4 flex items-center gap-4 border-b border-[#222d34]">
+            <img src="https://i.ibb.co/3pY8Z0N/user-placeholder.png" class="profile-img">
+            <div class="flex-1">
+                <h2 class="font-bold text-lg">Anuraj Raja</h2>
+                <p class="text-gray text-sm">Online | Working on TeleChat</p>
+            </div>
+        </div>
+
+        <div class="p-4 flex items-center gap-4 hover:bg-[#202c33] cursor-pointer">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">A</div>
+            <div class="flex-1 border-b border-[#222d34] pb-3">
+                <div class="flex justify-between">
+                    <h2 class="font-medium">Anuraj Singh</h2>
+                    <span class="text-xs text-gray">19:50</span>
                 </div>
-                <div class="flex-1">
-                    <div class="flex justify-between">
-                        <h2 class="font-bold text-lg">Anuraj Raja</h2>
-                        <span class="text-xs text-[#8696a0]">19:10</span>
-                    </div>
-                    <p class="text-[#8696a0] text-sm truncate">Working on new features...</p>
-                </div>
+                <p class="text-gray text-sm truncate">Bhai, app mast ban raha hai!</p>
             </div>
         </div>
     </div>
 
-    <div class="bg-[#111b21] border-t border-[#222d34] flex justify-around p-3 text-center">
+    <div class="wa-dark border-t border-[#222d34] flex justify-around p-3 text-center">
         <div class="active-tab flex flex-col items-center">
             <i class="fas fa-comment-dots text-xl"></i>
-            <span class="text-xs mt-1 font-medium">Chats</span>
+            <span class="text-[10px] mt-1">Chats</span>
         </div>
-        <div class="text-[#8696a0] flex flex-col items-center">
+        <div class="text-gray flex flex-col items-center">
             <i class="fas fa-circle-notch text-xl"></i>
-            <span class="text-xs mt-1">Updates</span>
+            <span class="text-[10px] mt-1">Updates</span>
         </div>
-        <div class="text-[#8696a0] flex flex-col items-center">
+        <div class="text-gray flex flex-col items-center">
             <i class="fas fa-users text-xl"></i>
-            <span class="text-xs mt-1">Communities</span>
+            <span class="text-[10px] mt-1">Communities</span>
         </div>
-        <div class="text-[#8696a0] flex flex-col items-center">
+        <div class="text-gray flex flex-col items-center">
             <i class="fas fa-phone-alt text-xl"></i>
-            <span class="text-xs mt-1">Calls</span>
+            <span class="text-[10px] mt-1">Calls</span>
         </div>
-        <div class="text-[#8696a0] flex flex-col items-center">
+        <div class="text-gray flex flex-col items-center">
             <div class="w-6 h-6 rounded-full bg-gray-500 overflow-hidden border border-gray-400">
-                <img src="https://via.placeholder.com/50" alt="you">
+                <img src="https://i.ibb.co/3pY8Z0N/user-placeholder.png">
             </div>
-            <span class="text-xs mt-1">You</span>
+            <span class="text-[10px] mt-1">You</span>
         </div>
     </div>
 
